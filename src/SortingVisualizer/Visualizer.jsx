@@ -1,30 +1,18 @@
 import React,{useEffect, useState} from 'react';
 import { Nav, Title,Complexity,SpeedSize ,CodeEditor,Canvas,Algobtn } from '../components';
+import generateArray from "../utils/ArrayGenerator";
 
 
 const Visualizer = () => {
   
-    const [array,setArray] = useState([]);
+    const [array,setArray] = useState(generateArray);
     
-    
-        
-    var randomArray = [];
-    
-    var initialArray =[];
-    for(let i = 0; i<55; i++) {
-        initialArray.push(Math.floor(Math.random()*500+1))
-    }
-    const heightMapper = () =>{
-            
-            for(let i = 0; i<55; i++) {
-                randomArray.push(Math.floor(Math.random()*500+1))
-            }
-            setArray(randomArray);
-        }
-        // console.log(randomArray);
 
-    
-   
+    const generatedArray = generateArray();
+    const heightMapper = () =>{setArray(generatedArray);}
+    // console.log(array);
+
+       
    
     const btnClass = "transition all ease delay-100 p-3 m-2 px-6 text-white rounded hover:rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-red-500 hover:to-purple-500";
     return (
@@ -48,7 +36,7 @@ const Visualizer = () => {
         {/* <Complexity/> */}
      <div class='flex flex-row'>
         <CodeEditor/>
-        <Canvas array={array.length>0?array:initialArray}/>
+        <Canvas array={array}/>
      </div>   
 
 

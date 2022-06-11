@@ -13,12 +13,30 @@ const Canvas = ({array,points}) => {
     // console.log(heightMapper);
 
     return (
-      <div class="w-4/5 bg-gradient-to-r from-green-400 to-blue-500">
-        <div class='bg-white w-11/12 px-2 h-[87%] m-10 rounded drop-shadow-2xl flex'>
+      <div class="w-4/5 bg-gradient-to-r from-green-400 to-blue-500 flex">
+        <div class='bg-white w-9/12 px-2 h-[87%] my-10 ml-10 rounded drop-shadow-2xl flex'>
           {array.map((h, index) => (
             <Bars key={index} height={h} color={"blue"} />
           ))}
         </div>
+
+        <div>
+
+        <div class='bg-[#272822] text-white w-[170px]  h-[40%] my-10 ml-5 rounded drop-shadow-2xl flex flex-col'>
+          <div class='p-8 mt-8'>
+            <h1 class='mb-5'>Time Complexity: </h1>
+            <h1 class='mb-5'>OlogN </h1>
+          </div>
+        </div>
+        <div class='bg-[#272822] text-white w-[170px]  h-[40%] ml-5 my-10 rounded drop-shadow-2xl flex flex-col'>
+           <div class='p-8 mt-8'>
+            <h1 class='mb-5'>Space Complexity: </h1>
+            <h1 class='mb-5'>OlogN </h1>
+           </div>
+        </div>
+        </div>
+
+
     </div>
   );
 };
