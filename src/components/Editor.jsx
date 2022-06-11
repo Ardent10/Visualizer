@@ -14,7 +14,7 @@ const CodeEditor = ({ value, onChange }) => {
       theme="monokai"
       value={value}
       onChange={onChange}
-      width="30%"
+      width="35%"
       height="80vh"
       showPrintMargin
       showGutter
