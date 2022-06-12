@@ -1,34 +1,40 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 
 const Complexity = ({complexity}) => {
+//    console.log(complexity);
+
+   const [TimeComplexity,setTimeComplexity] = useState(complexity); 
+   const [SpaceComplexity,setSpaceComplexity] = useState(complexity); 
    
-   const [TimeComplexity,setTimeComplexity] = useState('Θ(N^2)'); 
-   const [SpaceComplexity,setSpaceComplexity] = useState('O(1)'); 
    
-   if(complexity.includes('BubbleSort')){
-        setTimeComplexity('Θ(N^2)')
-        setSpaceComplexity('O(1)')
-   }
-   else if('HeapSort'){
-        setTimeComplexity('Θ(N^2)')
-        setSpaceComplexity('O(1)')
-   }
-   else if('SelectionSort'){
-        setTimeComplexity('Θ(N^2)')
-        setSpaceComplexity('O(1)')
-   }
-   else if('MergeSort'){
-        setTimeComplexity('Θ(N^2)')
-        setSpaceComplexity('O(1)')
-   }
-   else if('QuickSort'){
-        setTimeComplexity('Θ(N^2)')
-        setSpaceComplexity('O(1)')
-   }
-   else if('InsertionSort'){
-        setTimeComplexity('Θ(N^2)')
-        setSpaceComplexity('O(1)')
-   }
+
+    
+
+          if(complexity.includes('BubbleSort')){
+               console.log(complexity.includes('bubble'))
+               setTimeComplexity('Θ(N^2)')
+               setSpaceComplexity('O(1)')
+          }
+          else if(complexity.includes('HeapSort')){
+               setTimeComplexity('Θ(NLogN)')
+               setSpaceComplexity('O(1)')
+          }
+          else if(complexity.includes('SelectionSort')){
+               setTimeComplexity('Θ(N^2)')
+               setSpaceComplexity('O(1)')
+          }
+          else if(complexity.includes('MergeSort')){
+               setTimeComplexity('Θ(NLogN)')
+               setSpaceComplexity('O(N)')
+          }
+          else if(complexity.includes('QuickSort')){
+               setTimeComplexity('Θ(NLogN)')
+               setSpaceComplexity('O(N)')
+          }
+          else if(complexity.includes('InsertionSort')){
+               setTimeComplexity('Θ(N^2)')
+               setSpaceComplexity('O(1)')
+          }
 
 
 

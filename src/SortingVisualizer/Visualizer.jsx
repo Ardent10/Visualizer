@@ -8,6 +8,8 @@ const Visualizer = () => {
   
     const [array,setArray] = useState(generateArray);
     const [Algorithm,setAlgorithm] = useState(bubbleSort);
+    const [TimeComplexity,setTimeComplexity] = useState('Θ(N^2)')
+    const [SpaceComplexity,setSpaceComplexity] = useState('O(1)')
     
 
     const generatedArray = generateArray();
@@ -18,7 +20,33 @@ const Visualizer = () => {
     const algoSelector = (e) =>{
         const algorithmSelected = e.target.value;
         setAlgorithm(algorithmSelected);
-        // console.log(algorithmSelected);
+
+        if(algorithmSelected.includes('BubbleSort')){
+            console.log(algorithmSelected.includes('bubble'))
+            setTimeComplexity('Θ(N^2)')
+            setSpaceComplexity('O(1)')
+       }
+       else if(algorithmSelected.includes('HeapSort')){
+            setTimeComplexity('Θ(NLogN)')
+            setSpaceComplexity('O(1)')
+       }
+       else if(algorithmSelected.includes('SelectionSort')){
+            setTimeComplexity('Θ(N^2)')
+            setSpaceComplexity('O(1)')
+       }
+       else if(algorithmSelected.includes('MergeSort')){
+            setTimeComplexity('Θ(NLogN)')
+            setSpaceComplexity('O(N)')
+       }
+       else if(algorithmSelected.includes('QuickSort')){
+            setTimeComplexity('Θ(NLogN)')
+            setSpaceComplexity('O(N)')
+       }
+       else if(algorithmSelected.includes('InsertionSort')){
+            setTimeComplexity('Θ(N^2)')
+            setSpaceComplexity('O(1)')
+       }
+
     }
     
     
@@ -38,12 +66,12 @@ const Visualizer = () => {
             <h3 class='text-white p-5 pr-2 text-xl tracking-wider'>Algorithm: </h3>
 
             <select class='mx-1 w-40 h-7 m-5 border-solid border-2 rounded' onChange={algoSelector}>
-                <option value={bubbleSort} class={optionClass}>Bubble Sort</option>
-                <option value={insertionSort} class={optionClass}>Insertion Sort</option>
-                <option value={selectionSort} class={optionClass}>Selection Sort</option>
-                <option value={quickSort} class={optionClass}>Quick Sort</option>
-                <option value={mergeSort} class={optionClass}>Merge Sort</option>
-                <option value={heapSort} class={optionClass}>Heap Sort</option>
+                <option value={bubbleSort} id='1' class={optionClass}>Bubble Sort</option>
+                <option value={insertionSort} id='2' class={optionClass}>Insertion Sort</option>
+                <option value={selectionSort} id='3' class={optionClass}>Selection Sort</option>
+                <option value={quickSort} id='4' class={optionClass}>Quick Sort</option>
+                <option value={mergeSort} id='5' class={optionClass}>Merge Sort</option>
+                <option value={heapSort} id='6' class={optionClass}>Heap Sort</option>
             </select>
 
             </div>
@@ -59,7 +87,7 @@ const Visualizer = () => {
         {/* <Complexity/> */}
      <div class='flex flex-row'>
         <CodeEditor value={Algorithm}/>
-        <Canvas array={array} complexity={Algorithm}/>
+        <Canvas array={array} TimeComplexity={TimeComplexity} SpaceComplexity={SpaceComplexity}/>
      </div>   
 
 
