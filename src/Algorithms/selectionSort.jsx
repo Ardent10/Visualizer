@@ -1,4 +1,5 @@
-const selectionSort = `function* (arr) {
+const selectionSort = `
+function* SelectionSort(arr) {
   const n = arr.length;
 
   for (let i = 0; i < n; i++) {

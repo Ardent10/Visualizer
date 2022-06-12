@@ -1,4 +1,5 @@
-const mergeSort = `function* mergeArray(arr, start, mid, end) {
+const mergeSort = `
+function* MergeSort(arr, start, mid, end) {
   let start2 = mid + 1;
 
   if (arr[mid] <= arr[start2]) {
@@ -33,7 +34,7 @@ function* sort(arr, l, r) {
     yield* sort(arr, l, m);
     yield* sort(arr, m + 1, r);
 
-    yield* mergeArray(arr, l, m, r);
+    yield* mergeSort(arr, l, m, r);
   }
 }
 

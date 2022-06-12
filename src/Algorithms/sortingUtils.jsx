@@ -21,6 +21,7 @@ export {default as insertionSort} from "./insertionSort";
 export {default as mergeSort} from "./mergeSort";
 export {default as quickSort} from "./quickSort";
 export {default as selectionSort} from "./selectionSort";
+export {default as heapSort} from "./heapSort";
 
 // // Disables sorting buttons used in conjunction with enable, so that we can disable during sorting and enable buttons after it
 // function disableSortingBtn(){

@@ -1,23 +1,54 @@
-import React from 'react'
+import React,{useState} from 'react'
 
-const Complexity = () => {
+const Complexity = ({complexity}) => {
+   
+   const [TimeComplexity,setTimeComplexity] = useState('Θ(N^2)'); 
+   const [SpaceComplexity,setSpaceComplexity] = useState('O(1)'); 
+   
+   if(complexity.includes('BubbleSort')){
+        setTimeComplexity('Θ(N^2)')
+        setSpaceComplexity('O(1)')
+   }
+   else if('HeapSort'){
+        setTimeComplexity('Θ(N^2)')
+        setSpaceComplexity('O(1)')
+   }
+   else if('SelectionSort'){
+        setTimeComplexity('Θ(N^2)')
+        setSpaceComplexity('O(1)')
+   }
+   else if('MergeSort'){
+        setTimeComplexity('Θ(N^2)')
+        setSpaceComplexity('O(1)')
+   }
+   else if('QuickSort'){
+        setTimeComplexity('Θ(N^2)')
+        setSpaceComplexity('O(1)')
+   }
+   else if('InsertionSort'){
+        setTimeComplexity('Θ(N^2)')
+        setSpaceComplexity('O(1)')
+   }
+
+
+
+
+
   return (
-    <div class='bg-black h-96 flex flex-row'>
-
-        <div class='h-96 flex flex-col text-left m-2 p-2'>
-            <div class='text-white'>
-                <h1>Complexities</h1>
-                <div class=''>
-                </div>
-            </div>
+    <div>
+        <div class='bg-[#272822] text-white w-[170px]  h-[40%] my-10 ml-5 rounded drop-shadow-2xl flex flex-col'>
+          <div class='p-8 mt-8'>
+            <h1 class='mb-5'>Time Complexity: </h1>
+            <h1 class='mb-5'>{TimeComplexity}</h1>
+          </div>
         </div>
-    
-        <div class='h-96 flex flex-col text-left m-2 p-2'>
-            <div class='text-white'>
-                <h1>Result</h1>
-            </div>
+        <div class='bg-[#272822] text-white w-[170px]  h-[40%] ml-5 my-10 rounded drop-shadow-2xl flex flex-col'>
+           <div class='p-8 mt-8'>
+            <h1 class='mb-5'>Space Complexity: </h1>
+            <h1 class='mb-5'>{SpaceComplexity}</h1>
+           </div>
         </div>
-    </div>    
+        </div> 
   )
 }
 

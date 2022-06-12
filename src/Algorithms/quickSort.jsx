@@ -23,7 +23,7 @@ function* partition(arr, left, right) {
     return i;
 }
 
-function* quickSort(arr, left, right) {
+function* QuickSort(arr, left, right) {
     let index;
     if (arr.length > 1) {
         index = yield * partition(arr, left, right);
@@ -31,13 +31,13 @@ function* quickSort(arr, left, right) {
             yield* quickSort(arr, left, index - 1);
         }
         if (index < right) {
-            yield* quickSort(arr, index, right);
+            yield* QuickSort(arr, index, right);
         }
     }
 }
 
 sortingAlgorithm = function* (arr) {
-  yield* quickSort(arr, 0, arr.length - 1);
+  yield* QuickSort(arr, 0, arr.length - 1);
 };
 `;
 

@@ -1,4 +1,5 @@
-const insertionSort = (array) => {
+const insertionSort = `
+function* InsertionSort(array) => {
     
     let key,i,j;
     for(i=1; array.length-1;i++){
@@ -9,6 +10,7 @@ const insertionSort = (array) => {
         }
         array[j+1]=key;
     }
-}
+};`
+;
 
 export default insertionSort;

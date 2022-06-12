@@ -25,7 +25,7 @@ function* max_heapify(arr,i,n){
     return;
 }
 
-sortingAlgorithm = function* (arr) {
+sortingAlgorithm = function* HeapSort(arr) {
   let n = arr.length;
   for(let i = Math.floor(n/2)-1; i >= 0; i--){
       yield* max_heapify(arr,i,n);

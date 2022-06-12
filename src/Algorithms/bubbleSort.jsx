@@ -1,8 +1,5 @@
-import {swap} from "./sortingUtils";
-
-
-const bubbleSort = 
-`function* BubbleSort(array){
+const bubbleSort = `
+function* BubbleSort(array){
     const n = array.length;
     let swapped;
   
