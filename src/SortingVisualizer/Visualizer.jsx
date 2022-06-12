@@ -1,11 +1,13 @@
-import React,{useEffect, useState} from 'react';
-import { Nav, Title,Complexity,SpeedSize ,CodeEditor,Canvas,Algobtn } from '../components';
+import React,{ useState} from 'react';
+import { Nav, Title,Complexity,SpeedSize ,CodeEditor,Canvas,Algobtn,Footer } from '../components';
+import {bubbleSort,insertionSort,mergeSort,quickSort,selectionSort} from "../Algorithms/sortingUtils";
 import generateArray from "../utils/ArrayGenerator";
 
 
 const Visualizer = () => {
   
     const [array,setArray] = useState(generateArray);
+    const [Algorithm,setAlgorithm] = useState(selectionSort);
     
 
     const generatedArray = generateArray();
@@ -26,7 +28,7 @@ const Visualizer = () => {
             <Algobtn/>
             <div class="" id="newArray">
                 <button type="button" class={btnClass} onClick={heightMapper}>New Array</button>
-                <button type="button" class={btnClass}>Play</button>
+                <button type="button" class={btnClass}>play</button>
             </div>
            <SpeedSize/>
             
@@ -35,12 +37,12 @@ const Visualizer = () => {
 
         {/* <Complexity/> */}
      <div class='flex flex-row'>
-        <CodeEditor/>
+        <CodeEditor value={Algorithm}/>
         <Canvas array={array}/>
      </div>   
 
 
-
+       {/* <Footer/>  */}
     </div>
 
   )

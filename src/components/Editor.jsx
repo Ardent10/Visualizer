@@ -7,7 +7,8 @@ import 'ace-builds/src-noconflict/theme-monokai';
 
 
 const CodeEditor = ({ value, onChange }) => {
-  
+    // value = "This is testing the algorithms part" 
+    console.log(value);
     return (
     <AceEditor 
       mode="javascript"

@@ -5,3 +5,4 @@ export {default as Complexity} from "./Complexity";
 export {default as CodeEditor} from "./Editor";
 export {default as Canvas} from "./Canvas/Canvas";
 export {default as SpeedSize} from "./SpeedSize";
+export {default as Footer} from "./Footer";
