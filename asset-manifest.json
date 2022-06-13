@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Z-Visualizer/static/css/main.e75b74e8.css",
+    "main.js": "/Z-Visualizer/static/js/main.1eaa3d7f.js",
+    "index.html": "/Z-Visualizer/index.html",
+    "main.e75b74e8.css.map": "/Z-Visualizer/static/css/main.e75b74e8.css.map",
+    "main.1eaa3d7f.js.map": "/Z-Visualizer/static/js/main.1eaa3d7f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e75b74e8.css",
+    "static/js/main.1eaa3d7f.js"
+  ]
+}
