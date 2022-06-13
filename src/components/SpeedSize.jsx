@@ -1,17 +1,35 @@
 import React from 'react';
+import Slider from '@mui/material/Slider';
 
-const SpeedSize = ({addClass}) => {
+const SpeedSize = ({array}) => {
 
+  console.log(array.length)
+  
+  const btnClass = "tracking-wider w-40 p-2 m-1 text-xl text-white flex flex-col tracking-wider px-6 text-white rounded-lg bg-gradient-to-r from-green-400 to-blue-500";
   return (
     <div class="flex" id="input">
-        <div class={`tracking-wider p-2 mr-2 text-white flex flex-col ${addClass}`}>
-        <span id="size" >Size</span>
-        <input id="arr_sz" class='bg-#9a905d' type="range"/>
+        <div class={btnClass}>
+        <span id="size">Size</span>
+          <Slider
+          defaultValue={array.length}
+          // value={array.length}
+          min={10}
+          max={100}
+          
+          aria-label="Small"
+          valueLabelDisplay="auto"
+        />
         </div> 
 
-        <div class={`tracking-wider p-2 mr-2 text-white flex flex-col ${addClass}`}>
+        <div class={btnClass}>
         <span id="speed">Speed</span>
-        <input id="speed_input" type="range"/>
+          <Slider
+          defaultValue={50}
+          min={10}
+          max={100}
+          aria-label="Small"
+          valueLabelDisplay="auto"
+        />
         </div>   
     </div>
   )

@@ -1,5 +1,5 @@
-const mergeSort = `
-function* MergeSort(arr, start, mid, end) {
+const mergeSort = 
+`function* MergeSort(arr, start, mid, end) {
   let start2 = mid + 1;
 
   if (arr[mid] <= arr[start2]) {

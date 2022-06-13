@@ -52,7 +52,7 @@ const Visualizer = () => {
     
     // Classes   
     const optionClass = 'tracking-wider border-2 rounded bg-gradient-to-r from-green-400 to-blue-500'
-    const btnClass = "tracking-wider transition all ease delay-100 p-3 m-2 px-6 text-white rounded hover:rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-red-500 hover:to-purple-500";
+    const btnClass = "tracking-wider transition all ease delay-100 p-5 m-2 px-6 text-white text-xl rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-red-500 hover:to-purple-500";
     
     return (
     <div class="bg-[#000000] h-full">
@@ -62,7 +62,7 @@ const Visualizer = () => {
         {/* <Nav/>  */}
         <nav>
         <div class="justify-between flex p-2 mx-8">
-        <div class="flex flex-row pr-4 bg-gradient-to-r from-green-400 to-blue-500 rounded">
+        <div class="flex flex-row pr-4 m-2 bg-gradient-to-r from-green-400 to-blue-500 rounded">
             <h3 class='text-white p-5 pr-2 text-xl tracking-wider'>Algorithm: </h3>
 
             <select class='mx-1 w-40 h-7 m-5 border-solid border-2 rounded' onChange={algoSelector}>
@@ -74,12 +74,12 @@ const Visualizer = () => {
                 <option value={heapSort} id='6' class={optionClass}>Heap Sort</option>
             </select>
 
-            </div>
+        </div>
             <div class="" id="newArray">
                 <button type="button" class={btnClass} onClick={heightMapper}>New Array</button>
                 <button type="button" class={btnClass}>Run</button>
             </div>
-           <SpeedSize addClass={btnClass}/>
+           <SpeedSize array = {array}/>
             
         </div>
     </nav>
@@ -91,7 +91,7 @@ const Visualizer = () => {
      </div>   
 
 
-       {/* <Footer/>  */}
+       <Footer/> 
     </div>
 
   )
