@@ -1,11 +1,15 @@
 import React from 'react';
 import Slider from '@mui/material/Slider';
+import { generateNewArray,changeSize } from '../Redux/Reducers/arrayReducer';
 
 const SpeedSize = ({array}) => {
 
-  console.log(array.length)
+  const changeArraySize = (e)=>{
+    const newArraySize = e.target.value; 
+    console.log("Array size changed to value: ", newArraySize);
+  }
   
-  const btnClass = "tracking-wider w-40 p-2 m-1 text-xl text-white flex flex-col tracking-wider px-6 text-white rounded-lg bg-gradient-to-r from-green-400 to-blue-500";
+  const btnClass = "tracking-wider text-center w-40 p-2 m-1 text-xl text-white flex flex-col tracking-wider px-6 text-white rounded-lg bg-gradient-to-r from-green-400 to-blue-500";
   return (
     <div class="flex" id="input">
         <div class={btnClass}>
@@ -14,8 +18,8 @@ const SpeedSize = ({array}) => {
           defaultValue={array.length}
           // value={array.length}
           min={10}
-          max={100}
-          
+          max={150}
+          onChange={changeArraySize}
           aria-label="Small"
           valueLabelDisplay="auto"
         />

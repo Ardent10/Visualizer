@@ -21,5 +21,5 @@ function* BubbleSort(array){
   };`
 ;
 
-export default bubbleSort
+export default bubbleSort;
 

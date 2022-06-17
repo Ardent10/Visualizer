@@ -17,7 +17,7 @@ const CodeEditor = ({ value, onChange }) => {
       value={value}
       onChange={onChange}
       width="35%"
-      height="80vh"
+      height="79vh"
       showPrintMargin
       showGutter
       highlightActiveLine

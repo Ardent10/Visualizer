@@ -54,7 +54,7 @@ const Complexity = ({complexity}) => {
             <h1 class='mb-5'>{SpaceComplexity}</h1>
            </div>
         </div>
-        </div> 
+     </div> 
   )
 }
 
