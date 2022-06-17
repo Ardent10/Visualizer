@@ -7,16 +7,17 @@ import 'ace-builds/src-noconflict/theme-monokai';
 import { useSelector } from 'react-redux';
 
 
-const CodeEditor = ({ onChange }) => {
+const CodeEditor = ({ onChange,run }) => {
     const algo = useSelector(state=>state.array.algorithm);
-    // console.log();
+    
+    // console.log(run);
     
     return (
     <AceEditor 
       mode="javascript"
       theme="monokai"
       value={algo}
-      onChange={onChange}
+      onChange={run}
       width="35%"
       height="79vh"
       showPrintMargin
