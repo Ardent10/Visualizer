@@ -4,17 +4,18 @@ import AceEditor from 'react-ace';
 
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
+import { useSelector } from 'react-redux';
 
 
-const CodeEditor = ({ value, onChange }) => {
-    // value = "This is testing the algorithms part" 
-    // console.log(value);
+const CodeEditor = ({ onChange }) => {
+    const algo = useSelector(state=>state.array.algorithm);
+    // console.log();
     
     return (
     <AceEditor 
       mode="javascript"
       theme="monokai"
-      value={value}
+      value={algo}
       onChange={onChange}
       width="35%"
       height="79vh"

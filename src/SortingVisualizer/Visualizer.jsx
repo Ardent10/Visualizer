@@ -3,7 +3,7 @@ import Slider from '@mui/material/Slider';
 import { Nav, Title,Complexity,SpeedSize ,CodeEditor,Canvas,Algobtn,Footer } from '../components';
 import {bubbleSort,insertionSort,mergeSort,quickSort,selectionSort,heapSort} from "../Algorithms/sortingUtils";
 import generateArray from "../utils/ArrayGenerator";
-import { generateNewArray,changeSize } from '../Redux/Reducers/arrayReducer';
+import { generateNewArray,changeSize,changeSpeed, changeAlgorithm, changeTimeComplexity, changeSpaceComplexity } from '../Redux/Reducers/arrayReducer';
 import { useSelector,useDispatch } from 'react-redux';
 
 
@@ -13,52 +13,105 @@ import { useSelector,useDispatch } from 'react-redux';
 const Visualizer = () => {
   
     var generatedArray = useSelector(state=>state.array.array);
-    const [array,setArray] = useState(generatedArray);
+    const [array,setArray] = useState({
+        CurrentArray:generatedArray,
+        Algorithm:bubbleSort,
+        TimeComplexity:'Θ(N^2)',
+        SpaceComplexity:'O(1)',
+        Size:75,
+        Speed:50
+    });
 
-    const [Algorithm,setAlgorithm] = useState(bubbleSort);
-    const [TimeComplexity,setTimeComplexity] = useState('Θ(N^2)')
-    const [SpaceComplexity,setSpaceComplexity] = useState('O(1)')
+      
     
-    
-    const dispath = useDispatch();
+    const dispatch = useDispatch();
 
     const heightMapper = () =>{
         generatedArray = generateArray(75);
-        const size = generatedArray.length;
+        const size = 75;
 
-        dispath(generateNewArray({generatedArray}));
-        dispath(changeSize({size}));
-        setArray(generatedArray);
+        dispatch(generateNewArray({generatedArray}));
+        dispatch(changeSize({size}));
+        
+        setArray({
+            CurrentArray:generatedArray,
+            Size:size
+        });
     }
 
     
     const algoSelector = (e) =>{
-        const algorithmSelected = e.target.value;
-        setAlgorithm(algorithmSelected);
+        const selectedAlgorithm = e.target.value;
+        console.log(selectedAlgorithm);
+        dispatch(changeAlgorithm({selectedAlgorithm}));
+        setArray({
+            Algorithm:selectedAlgorithm
+        }
+        );
 
-        if(algorithmSelected.includes('BubbleSort')){
-            setTimeComplexity('Θ(N^2)')
-            setSpaceComplexity('O(1)')
+        var timeComplexity, spaceComplexity;
+        if(selectedAlgorithm.includes('BubbleSort')){
+            timeComplexity='Θ(N^2)';
+            spaceComplexity='Θ(1)';
+            dispatch(changeTimeComplexity({timeComplexity}));
+            dispatch(changeSpaceComplexity({spaceComplexity}));
+            
+            setArray({
+                TimeComplexity:'Θ(N^2)',
+                SpaceComplexity:'Θ(1)'
+            });
        }
-       else if(algorithmSelected.includes('HeapSort')){
-            setTimeComplexity('Θ(NLogN)')
-            setSpaceComplexity('O(1)')
+       else if(selectedAlgorithm.includes('HeapSort')){
+            timeComplexity='Θ(NLogN)';
+            spaceComplexity='Θ(1)';
+            dispatch(changeTimeComplexity({timeComplexity}));
+            dispatch(changeSpaceComplexity({spaceComplexity}));
+            setArray({
+                TimeComplexity:'Θ(NLogN)',
+                SpaceComplexity:'O(1)'
+            })
        }
-       else if(algorithmSelected.includes('SelectionSort')){
-            setTimeComplexity('Θ(N^2)')
-            setSpaceComplexity('O(1)')
+       else if(selectedAlgorithm.includes('SelectionSort')){
+            timeComplexity='Θ(N^2)';
+            spaceComplexity='Θ(1)';
+            dispatch(changeTimeComplexity({timeComplexity}));
+            dispatch(changeSpaceComplexity({spaceComplexity}));
+            setArray({
+                TimeComplexity:'Θ(N^2)',
+                SpaceComplexity:'O(1)'
+            })  
        }
-       else if(algorithmSelected.includes('MergeSort')){
-            setTimeComplexity('Θ(NLogN)')
-            setSpaceComplexity('O(N)')
+       else if(selectedAlgorithm.includes('MergeSort')){
+            timeComplexity='Θ(NLogN)';
+            spaceComplexity='Θ(N)';
+            dispatch(changeTimeComplexity({timeComplexity}));
+            dispatch(changeSpaceComplexity({spaceComplexity}));
+            setArray({
+                TimeComplexity:'Θ(NLogN)',
+                SpaceComplexity:'O(N)'
+            })
        }
-       else if(algorithmSelected.includes('QuickSort')){
-            setTimeComplexity('Θ(NLogN)')
-            setSpaceComplexity('O(N)')
+       else if(selectedAlgorithm.includes('QuickSort')){
+            timeComplexity='Θ(NLogN)';
+            spaceComplexity='Θ(N)';
+            dispatch(changeTimeComplexity({timeComplexity}));
+            dispatch(changeSpaceComplexity({spaceComplexity}));
+            setArray({
+                TimeComplexity:'Θ(NLogN)',
+                SpaceComplexity:'O(N)'
+            })
        }
-       else if(algorithmSelected.includes('InsertionSort')){
-            setTimeComplexity('Θ(N^2)')
-            setSpaceComplexity('O(1)')
+       else if(selectedAlgorithm.includes('InsertionSort')){
+            timeComplexity='Θ(N^2)';
+            spaceComplexity='Θ(1)';
+            dispatch(changeTimeComplexity({timeComplexity}));
+            dispatch(changeSpaceComplexity({spaceComplexity}));
+            setArray({
+                TimeComplexity:'Θ(N^2)',
+                SpaceComplexity:'O(1)'
+            })
+            // setTimeComplexity('Θ(N^2)')
+            // setSpaceComplexity('O(1)')
        }
 
     }
@@ -68,16 +121,22 @@ const Visualizer = () => {
         generatedArray = generateArray(newArraySize);
         const size = generatedArray.length;
 
-        dispath(generateNewArray({generatedArray}));
-        dispath(changeSize({size}));
-        setArray(generatedArray);
+        dispatch(generateNewArray({generatedArray}));
+        dispatch(changeSize({size}));
+        setArray({
+           CurrentArray:generatedArray
+        });
 
         // console.log(newArraySize);
     }
 
-    const changeSpeed = (e)=>{
+    const changeAlgoSpeed = (e)=>{
         const speed = e.target.value;
-        console.log("New Speed",speed );
+        // console.log("New Speed",speed );
+        setArray({
+            Speed:speed
+        })
+        dispatch(changeSpeed({speed}));
     }
 
 
@@ -120,7 +179,7 @@ const Visualizer = () => {
                 <div class={speedSizeClass}>
                 <span id="size">Size</span>
                 <Slider
-                defaultValue={array.length}
+                defaultValue={array.Size}
                 // value={array.length}
                 min={10}
                 max={150}
@@ -136,7 +195,8 @@ const Visualizer = () => {
                 defaultValue={50}
                 min={10}
                 max={100}
-                onChange={changeSpeed}
+                valueLabelFormat={(n) => `${n} ticks/sec`}
+                onChange={changeAlgoSpeed}
                 aria-label="Small"
                 valueLabelDisplay="auto"
                 />
@@ -149,8 +209,8 @@ const Visualizer = () => {
 
         {/* <Complexity/> */}
      <div class='flex flex-row'>
-        <CodeEditor value={Algorithm}/>
-        <Canvas array={array} TimeComplexity={TimeComplexity} SpaceComplexity={SpaceComplexity}/>
+        <CodeEditor/>
+        <Canvas/>
      </div>   
 
 
