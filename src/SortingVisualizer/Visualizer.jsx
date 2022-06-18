@@ -1,4 +1,4 @@
-import React,{ useEffect, useState} from 'react';
+import React,{ useState} from 'react';
 import Slider from '@mui/material/Slider';
 import { Nav, Title,Complexity,SpeedSize ,CodeEditor,Canvas,Algobtn,Footer } from '../components';
 import {bubbleSort,insertionSort,mergeSort,quickSort,selectionSort,heapSort} from "../Algorithms/sortingUtils";
@@ -143,6 +143,7 @@ const Visualizer = () => {
 
     const Run = () =>{
         setButton(!RunButton)
+
     }
 
     
