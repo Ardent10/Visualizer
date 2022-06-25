@@ -10,7 +10,6 @@ import { useSelector } from 'react-redux';
 const CodeEditor = ({ onChange,run }) => {
     const algo = useSelector(state=>state.array.algorithm);
     
-    // console.log(run);
     
     return (
     <AceEditor 
