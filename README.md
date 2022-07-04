@@ -1,7 +1,7 @@
 # Z-Visualizer
 A Sorting Data Structure and Algorithms visualizer for beginner who are finding it difficult to understand how various Sorting algorithm works.
 This Project was designed with features like Live Code Editor, Size, Speed of the array. It is easy to understand how the process of sorting works. 
-
+ 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
