@@ -5,7 +5,7 @@ export default function ValueMapper(minArrayLength, maxArrayLength, minColumnHei
     for(let i=0; i<arr.length;i++){
         arr[i] = getRandomInt(minColumnHeight,maxColumnHeight);
     }
-    return arr;
+    return arr;  
 }
 
 function getRandomInt(min,max){
